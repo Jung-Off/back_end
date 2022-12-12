@@ -42,7 +42,7 @@ export class MyGateway implements OnModuleInit, OnGatewayDisconnect {
   onModuleInit() {
     this.server.on('connection', (socket) => {
       console.log('onModuleInit');
-      this.logger.log('intra: gilee', 'socket.id:', socket.id); // 자기 자신
+      this.logger.log('connection intra: gilee', 'socket.id:', socket.id); // 자기 자신
 
       const avatar = 'avatar_copy';
       const nickname = 'jjjjjjjj';
@@ -67,6 +67,8 @@ export class MyGateway implements OnModuleInit, OnGatewayDisconnect {
     console.log(client.client['id']);
     console.log(client.id);
     console.log('Dissconnected start');
+
+    this.logger.log('Disconnection intra: gilee socket.id:', client.id); // 자기 자신
     //유저를 제거하고 방에서도 제거 >> 방에서 제거하는 것은 어떻게 하지?, 방도 추가를 해주어야 하나? 싶은데
     this.room.deleteUser(client.id);
 

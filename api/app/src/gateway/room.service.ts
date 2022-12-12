@@ -36,19 +36,6 @@ export class RoomService {
     addRoom(roomname: string, charRoom : IChatRoom): void {
       this.rooms.set(roomname, charRoom);
     } 
-    
-    showRooms() : void {
-      console.log('showRooms............');
-        this.rooms.forEach(a => {
-          console.log('this is room name : ', a.name);
-            // console.log(a.id);
-            // console.log(a.pw);
-            console.log(a.users);
-            // console.log(a.ban);
-            // console.log(a.host);
-        })
-        console.log('showRooms End............');
-      } 
       
     getRoom(intra: string): RoomService | null {
         // console.log('getRoom...');
@@ -77,21 +64,6 @@ export class RoomService {
       console.log(a.host);
     });
     console.log('showRooms End............');
-  }
-
-  getRoom(intra: string): RoomService | null {
-    // console.log('getRoom...');
-    for (const room of this.rooms) {
-      if (this.rooms[intra]) return room[intra];
-      console.log('getRoom...');
-    }
-    return null;
-  }
-
-  getInRoomUser(roomname: string): void {
-    console.log('getInRoomUser');
-    //console.log(this.rooms.get(roomname).users);
-    // return (this.rooms.get(roomname).users);
   }
 
   addUser(name: string, user: IUser, client: Socket): void {
